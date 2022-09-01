@@ -1,0 +1,24 @@
+name: 启动
+
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: '设备ID（8-4-4-4-12）'
+        required: true
+        type: string
+        
+jobs:
+  start:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: 开始获取流量
+        env:
+          DEVICE_ID: ${{ inputs.id }}
+        run: |
+          chmod +x ./warp-plus.py
+          python warp-plus.py
