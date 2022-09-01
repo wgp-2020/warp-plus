@@ -11,13 +11,9 @@ on:
 jobs:
   start:
     runs-on: ubuntu-latest
-    timeout-minutes: 999999999
     
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-        with:
-          python-version: '3.8.12'
       
       - name: 开始获取流量
         env:
