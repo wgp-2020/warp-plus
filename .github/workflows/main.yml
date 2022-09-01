@@ -8,7 +8,7 @@ on:
         required: true 
         type: int
   schedule:
-    - cron: '0 0/4 * * *'
+    - cron: '0 * * * *'
 
 env:
   RUN_TIME: ${{ inputs.runTime }}
