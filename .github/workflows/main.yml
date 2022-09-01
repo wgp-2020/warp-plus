@@ -1,20 +1,67 @@
-name: 启动
+name: 运行
 
 on:
+  workflow_dispatch:
+    inputs:
+      runTime:
+        description: '运行时间（单位：分）'
+        required: true 
+        type: int
   schedule:
     - cron: '0 0/4 * * *'
-        
+
+env:
+  RUN_TIME: ${{ inputs.runTime }}
+  DEVICE_ID: ${{ secrets.DEVICE_ID }}
+
 jobs:
-  start:
+  job1:
     runs-on: ubuntu-latest
-    env:
-      DEVICE_ID: ${{ secrets.DEVICE_ID }}
     steps:
       - uses: actions/checkout@v3
-      - if: ${{ env.DEVICE_ID != '' }}
-        name: 持续获取流量
-        run: |
-          python warp-plus.py
-      - if: ${{ env.DEVICE_ID == '' }}
-        name: 请先设置设备ID ！
-        run: echo -e '依次点击：Settings > secrets > Actions > New repository secret \n Name：DEVICE_ID \n Value：你的设备ID'
+      - run: python warp-plus.py
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job5:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job6:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job7:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job9:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
+  job10:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: python warp-plus.py
