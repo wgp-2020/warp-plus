@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       runTime:
-        description: '运行时间（单位：分）'
+        description: '运行时间（单位：分 最大值：360）'
         required: true 
         type: int
   schedule:
