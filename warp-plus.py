@@ -53,7 +53,7 @@ def run():
 
 ts = 23
 e_rt = int(os.getenv('RUN_TIME'))
-runTime = e_rt*60 if e_rt else 14100
+runTime = e_rt*60 if e_rt else 18000
 suc = 0
 bad = 0
 while True:
