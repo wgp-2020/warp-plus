@@ -5,8 +5,11 @@ import random
 import string
 import time
 import os
+import sys
 
 print ("WARP-PLUS-CLOUDFLARE By ALIILAPRO")
+
+startTime = time.time()
 referrer = os.getenv('DEVICE_ID')
 def genString(stringLength):
 	try:
@@ -44,19 +47,23 @@ def run():
 		status_code = response.getcode()	
 		return status_code
 	except Exception as error:
-		print(error)	
+		if error.getcode() != 429:
+			print(error)
+			sys.exit(0)
 
 ts = 23
-num = 0
+suc = 0
+bad = 0
 while True:
-	if num == 2: break
+	if time.time() - startTime >= 18000:
+		print(f"总计获取{suc}GB流量，失败{bad}次")
+		break
 	result = run()
 	if result == 200:
-		num = num +1
-		print(f"成功！总计获取{num}GB流量")
+		suc = suc +1
 		if ts > 23: ts = ts - 1
 		time.sleep(ts)
 	else:
+		bad = bad + 1
 		ts = ts + 1
-		print(f"失败！将等待{ts}秒")	
 		time.sleep(ts)
