@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - if: ${{ env.DEVICE_ID != '' }}
-        name: 持续获取流量中...
+        name: 持续获取流量
         run: |
           python warp-plus.py
       - if: ${{ env.DEVICE_ID == '' }}
