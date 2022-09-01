@@ -100,10 +100,10 @@ def run():
 ts = 23
 num = 0
 while True:
-	if num == 2: break
+	if num >= 2: break
 	result = run()
 	if result == 200:
-		num = num +1
+		num = num + 1
 		print(f"成功！总计获取{num}GB流量")
 		if ts > 23: ts = ts - 1
 		time.sleep(ts)
@@ -113,7 +113,7 @@ while True:
 		time.sleep(ts)
 	result = run()
 	if result == 200:
-		num = num +1
+		num = num + 1
 		print(f"成功！总计获取{num}GB流量")
 		if ts > 23: ts = ts - 1
 		time.sleep(ts)
