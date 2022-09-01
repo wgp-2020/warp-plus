@@ -20,6 +20,8 @@
 
   ![image](https://user-images.githubusercontent.com/70625361/187930606-2cfb2bd9-01b4-4b53-a4bf-1617fd0ea9a6.png)
 
+> 每次执行将启用10个job并发运行（大约每2.3秒获取1GB流量）
+> 
 > 免费计划最多同时运行20个job，多出来的job将排队等候
 
 ****
