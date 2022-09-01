@@ -1,22 +1,19 @@
 name: 启动
 
 on:
-  workflow_dispatch:
-    inputs:
-      id:
-        description: '设备ID（8-4-4-4-12）'
-        required: true
-        type: string
+  schedule:
+    - cron: '0 0/4 * * *'
         
 jobs:
   start:
     runs-on: ubuntu-latest
-    
+    env:
+      DEVICE_ID: ${{ secrets.DEVICE_ID }}
     steps:
       - uses: actions/checkout@v3
-      
-      - name: 开始获取流量
-        env:
-          DEVICE_ID: ${{ inputs.id }}
+      - if: ${{ env.DEVICE_ID != '' }}
+        name: 持续获取流量中...
         run: |
           python warp-plus.py
+      - if: ${{ env.DEVICE_ID == '' }}
+        name: 请先设置设备ID ！
