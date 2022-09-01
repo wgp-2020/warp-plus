@@ -49,6 +49,7 @@ def run():
 ts = 23
 num = 0
 while True:
+	if num == 2: break
 	result = run()
 	if result == 200:
 		num = num +1
