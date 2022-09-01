@@ -56,7 +56,7 @@ suc = 0
 bad = 0
 while True:
 	if time.time() - startTime >= 14100:
-		print(f"总计获取{suc}GB流量，失败{bad}次")
+		print(f"本次获取{suc}GB流量，失败{bad}次")
 		break
 	result = run()
 	if result == 200:
