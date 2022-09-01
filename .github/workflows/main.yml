@@ -17,3 +17,4 @@ jobs:
           python warp-plus.py
       - if: ${{ env.DEVICE_ID == '' }}
         name: 请先设置设备ID ！
+        run: echo -e '依次点击：Settings > secrets > Actions > New repository secret \n Name：DEVICE_ID \n Value：你的设备ID'
