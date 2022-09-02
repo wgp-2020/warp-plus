@@ -7,8 +7,8 @@ on:
         description: '运行时间（单位：分 最大值：360）'
         required: true 
         type: int
-  schedule:
-    - cron: '0 0/4 * * *'
+  #schedule:
+    #- cron: '0 12 * * *'
 
 env:
   RUN_TIME: ${{ inputs.runTime }}
