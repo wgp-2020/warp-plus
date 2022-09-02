@@ -7,6 +7,7 @@ on:
         description: '运行时间（单位：分 最大值：360）'
         required: true 
         type: int
+#删除下面2行开头的'#'以启用定时任务
   #schedule:
     #- cron: '0 12 * * *'
 
